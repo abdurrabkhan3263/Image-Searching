@@ -103,6 +103,7 @@ input[type='submit']:hover{
 
 
 .more {
+    
     width: 100%;
     text-align: center;
     padding: 20px;
@@ -124,4 +125,14 @@ input[type='submit']:hover{
 .more .btn:hover {
     background-color: #1f2b38;
     color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    nav ul li {
+        font-size: 18px; /* Adjusted font size for smaller screens */
+    }
+
+    .img {
+        width: 100%; /* Adjusted width for smaller screens */
+    }
 }
