@@ -23,7 +23,13 @@ nav ul{
     display: flex;
 }
 
+nav ul a{
+    text-decoration: none;
+    color: white;
+}
+
 nav ul li{
+    text-decoration: none;
     list-style: none;
     margin: 0 5vw;
     font-size: 24px;
@@ -64,7 +70,7 @@ input[type='submit']:hover{
     color: #ffff;
 }
 
-.photos{
+.photosBox{
     height: 99;
     display: flex;
     border-radius: 12px;
@@ -72,7 +78,7 @@ input[type='submit']:hover{
     min-height: 78vh;
     flex-wrap: wrap;
     justify-content: center;
-    overflow: auto;
+    overflow: auto; 
 }
 
 
@@ -93,6 +99,7 @@ input[type='submit']:hover{
     user-select: none;
     width: 100%;
     border-radius: 12px 12px 0 0;
+    overflow: hidden;
 }
 
 .img p{
@@ -131,8 +138,16 @@ input[type='submit']:hover{
     nav ul li {
         font-size: 18px; /* Adjusted font size for smaller screens */
     }
-
-    .img {
-        width: 100%; /* Adjusted width for smaller screens */
+    .main{
+        width: 100vw;
+    }
+    .photosBox{
+        width: 100vw;
+        padding: 0;
+    }
+    .img{
+        width: 100vw;
+        margin: 20px 5px;
+        height: 60vh;
     }
 }
