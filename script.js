@@ -9,6 +9,7 @@ const srBtn = document.querySelector('#submit');
 const phoBox = document.querySelector('.photosBox');
 const loadMore = document.querySelector('.btn');
 const img = document.querySelector('.img');
+const home = document.querySelector('.home')
 let data = '';
 let inputval = 'nature';
 let logic = false;
@@ -70,9 +71,14 @@ loadMore.addEventListener('click' ,()=>{
     load();
 });
 
+
+
 (
     function onLoad(){
         searchImg(inputval)
     }
 )();
 
+    // home.addEventListener('click' , function(){
+    //     searchImg(inputval,data)
+    // }); if any one solve this home feature please solve it and explain it

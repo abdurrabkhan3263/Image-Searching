@@ -138,6 +138,18 @@ input[type='submit']:hover{
     nav ul li {
         font-size: 18px; /* Adjusted font size for smaller screens */
     }
+    .search{
+        width: 100vw;
+        height: 5.1vh;
+    }
+    input[type='submit']{
+        width: 23vw;
+        font-size: 15px;
+    }
+    input[type='search']{
+        width: 60vw;
+        font-size: 15px;
+    }
     .main{
         width: 100vw;
     }
@@ -148,6 +160,12 @@ input[type='submit']:hover{
     .img{
         width: 100vw;
         margin: 20px 5px;
-        height: 60vh;
+        min-height: 60vh;
+    }
+    .more{
+        background-color: #ffffff00;
+    }
+    nav ul li{
+        margin: 0 7vw;
     }
 }
