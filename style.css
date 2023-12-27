@@ -29,6 +29,8 @@ nav ul a{
 }
 
 nav ul li{
+    user-select: none;
+    cursor: pointer;
     text-decoration: none;
     list-style: none;
     margin: 0 5vw;
@@ -93,6 +95,13 @@ input[type='submit']:hover{
     border-radius: 12px;
     box-shadow: 0 0 50px rgba(128, 128, 128, 0.473);
     margin: 40px;
+}
+
+.image{
+    width: 100%;
+    /* height: 28vh; */
+    min-height: 10vh;
+    overflow: hidden;
 }
 
 .img img{
@@ -168,4 +177,11 @@ input[type='submit']:hover{
     nav ul li{
         margin: 0 7vw;
     }
+}
+
+.error{
+    background:url(error.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }

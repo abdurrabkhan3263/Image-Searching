@@ -9,9 +9,11 @@ const srBtn = document.querySelector('#submit');
 const phoBox = document.querySelector('.photosBox');
 const loadMore = document.querySelector('.btn');
 const img = document.querySelector('.img');
-const home = document.querySelector('.home')
+const home = document.querySelector('.home');
+const reload = document.querySelector('.reload');
+const errorPage = document.querySelector('.photosBox')
 let data = '';
-let inputval = 'nature';
+let inputval = 'a;;';
 let logic = false;
 
 
@@ -27,16 +29,19 @@ async function searchImg(input,loadValue){
     const response = await fetch(url).then((response)=>{
         return response.json()
     }).then((data)=>{
+        errorPage.classList.remove('error')
         logic = true;
         const value = data;
         data.results.forEach((value,index)=>{
             let img = value.urls['small_s3'];
             let title = value.alt_description;
             data += `
-            <div class="img" id=${index}>
-            <img src=${img} alt="${title}">
-            <p>${title}</p>
-        </div>
+            <div class="img">
+                <div class="image">
+                    <img src="${img}" alt="Ocean">
+                </div>
+                <p>${title}</p>
+            </div>
             `
         })
         if(loadValue){
@@ -46,19 +51,40 @@ async function searchImg(input,loadValue){
         }
         phoBox.innerHTML = data;
     }).catch((error)=>{
+        logic = false;
+        phoBox.innerHTML = '';
+        errorPage.classList.add('error')
         throw new Error('Find Some Error');
     })
 }
+
+img.addEventListener('click' , function(e){
+    console.log("Hello")
+})
+
 
 function load(){
     if(logic){
         loadval = phoBox.innerHTML;
         page = page + 1;
         searchImg(inputval,loadval)
+        if(page === 199){
+            page = 1;
+        }
     }
 }
 
+home.addEventListener('click' , function(e){
+    searchImg(inputval ,)  
+})
 
+reload.addEventListener('click' , function(){
+    page = page + 1;
+    searchImg(inputval , )
+    if(page === 199){
+        page = 1;
+    }
+})
 
 // EVENT LISTENER
 srBtn.addEventListener('click' , (e)=>{
@@ -75,10 +101,6 @@ loadMore.addEventListener('click' ,()=>{
 
 (
     function onLoad(){
-        searchImg(inputval)
+        searchImg(inputval , )
     }
 )();
-
-    // home.addEventListener('click' , function(){
-    //     searchImg(inputval,data)
-    // }); if any one solve this home feature please solve it and explain it
