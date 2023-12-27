@@ -13,7 +13,7 @@ const home = document.querySelector('.home');
 const reload = document.querySelector('.reload');
 const errorPage = document.querySelector('.photosBox')
 let data = '';
-let inputval = 'a;;';
+let inputval = 'all';
 let logic = false;
 
 
@@ -31,14 +31,14 @@ async function searchImg(input,loadValue){
     }).then((data)=>{
         errorPage.classList.remove('error')
         logic = true;
-        const value = data;
+        const apiData = data;
         data.results.forEach((value,index)=>{
-            let img = value.urls['small_s3'];
+            let img = value.urls['small'];
             let title = value.alt_description;
             data += `
             <div class="img">
                 <div class="image">
-                    <img src="${img}" alt="Ocean">
+                    <a href="#" target='_blank' id=${index}><img src="${img}" alt="Ocean" id=${index}></a>
                 </div>
                 <p>${title}</p>
             </div>
@@ -50,17 +50,25 @@ async function searchImg(input,loadValue){
             data = data.slice(16,data.length)
         }
         phoBox.innerHTML = data;
+        document.querySelectorAll('.img').forEach((value)=>{
+            value.addEventListener('click' , (e)=>{
+                const data = e.target
+                if(data.hasAttribute('id')){
+                    const downloadVal = apiData.results[data.id].links['download']
+                    console.log(apiData.results[data.id].links)
+                    data.parentNode.setAttribute('href' , downloadVal)
+                }
+            })
+        })
     }).catch((error)=>{
         logic = false;
         phoBox.innerHTML = '';
         errorPage.classList.add('error')
         throw new Error('Find Some Error');
     })
+    
 }
 
-img.addEventListener('click' , function(e){
-    console.log("Hello")
-})
 
 
 function load(){
